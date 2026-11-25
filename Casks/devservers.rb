@@ -1,6 +1,6 @@
 cask "devservers" do
-  version "1.0.1"
-  sha256 "fc32d965c41103a0ed75723343240acb8e3e34bffedf1cd56a6def4fcca87ad9"
+  version "1.0.2"
+  sha256 "0cdaadecce44edb3d67fcf37bf6f1475ea6227390a8dc739725d0d978dc1c72b"
 
   url "https://github.com/silqwer/devservers/releases/download/v#{version}/DevServers.zip"
   name "DevServers"
@@ -16,17 +16,15 @@ cask "devservers" do
 
   app "DevServers.app"
 
-  # Ad-hoc signed and not notarized: clear the quarantine flag so Gatekeeper doesn't block launch
-  postflight_steps do
-    run "/usr/bin/xattr", args: ["-dr", "com.apple.quarantine", "{{appdir}}/DevServers.app"]
-  end
-
   uninstall quit: "local.devservers"
 
   zap trash: "~/Library/Preferences/local.devservers.plist"
 
   caveats <<~EOS
-    DevServers is ad-hoc signed and not notarized by Apple.
-    The quarantine flag is removed on install so it can launch normally.
+    Upgrading quits DevServers. Open it again afterwards:
+      open -a DevServers
+
+    To launch it at login, add DevServers under
+    System Settings → General → Login Items.
   EOS
 end
