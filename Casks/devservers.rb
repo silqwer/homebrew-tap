@@ -1,6 +1,6 @@
 cask "devservers" do
-  version "1.0.3"
-  sha256 "55fb11ce525f3c96d60ad4dfe379baf0bd907f8feeeadb9223040761dd9a3832"
+  version "1.0.4"
+  sha256 "03fdfe54d98821d5e40fefc42cc5b21a50c05e37a6ac0c0bcd4e043eece5b1a3"
 
   url "https://github.com/silqwer/devservers/releases/download/v#{version}/DevServers.zip"
   name "DevServers"
